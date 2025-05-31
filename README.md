@@ -1,6 +1,7 @@
 #  Property Listing System Backend 
 Deployment
 Live URL: https://property-listing-ashy.vercel.app/
+Postman Collection file - Download Property_Listing_System_API.postman_collection.json
 
 This is a backend system for managing property listings. It supports full **CRUD operations**, **user authentication**, **advanced filtering**, **property favoriting**, and a **recommendation system**
 ---
