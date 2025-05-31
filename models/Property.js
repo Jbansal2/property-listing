@@ -12,7 +12,7 @@ const propertySchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    enum: ["apartment", "house", "condo", "villa", "townhouse", "bungalow"],
+    enum: ["Apartment", "House", "Condo", "Villa", "Townhouse", "Bungalow"],
     required: true,
   },
   price: {
@@ -45,7 +45,7 @@ const propertySchema = new mongoose.Schema({
   },
   furnished: {
     type: String,
-    enum: ["furnished", "unfurnished", "semi-furnished"],
+    enum: ["Furnished", "Unfurnished", "Semi-furnished"],
     required: true,
   },
   availableFrom: {
@@ -54,7 +54,7 @@ const propertySchema = new mongoose.Schema({
   },
   listedBy: {
     type: String,
-    enum: ["builder", "owner", "agent"],
+    enum: ["Builder", "Owner", "Agent"],
     required: true,
   },
   tags: {

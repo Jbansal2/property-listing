@@ -21,7 +21,7 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.send("Welcome to the Real Estate API");
+  res.send("Welcome to the Proprty Listing System API");
 });
 
 (async () => {
