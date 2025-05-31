@@ -1,0 +1,327 @@
+{
+  "info": {
+    "name": "Property Listing System API",
+    "_postman_id": "property-listing-system",
+    "description": "Postman collection for testing the Property Listing System API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/auth/register",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "auth",
+            "register"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Login User",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/auth/login",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "auth",
+            "login"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Create Property",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/properties",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "properties"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"3BHK Apartment\",\n  \"price\": 150000,\n  \"location\": \"Mumbai\",\n  \"bedrooms\": 3,\n  \"bathrooms\": 2,\n  \"area\": 1200,\n  \"propertyType\": \"Apartment\",\n  \"furnished\": true,\n  \"parking\": true,\n  \"amenities\": [\n    \"Gym\",\n    \"Swimming Pool\"\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Get All Properties",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/properties",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "properties"
+          ],
+          "query": []
+        }
+      }
+    },
+    {
+      "name": "Get Single Property",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/properties/:id",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "properties",
+            ":id"
+          ],
+          "query": []
+        }
+      }
+    },
+    {
+      "name": "Update Property",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/properties/:id",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "properties",
+            ":id"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Updated Title\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Delete Property",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/properties/:id",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "properties",
+            ":id"
+          ],
+          "query": []
+        }
+      }
+    },
+    {
+      "name": "Add to Favorites",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/favorites",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "favorites"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"propertyId\": \"<property_id>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Get Favorites",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/favorites",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "favorites"
+          ],
+          "query": []
+        }
+      }
+    },
+    {
+      "name": "Remove Favorite",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/favorites/:id",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "favorites",
+            ":id"
+          ],
+          "query": []
+        }
+      }
+    },
+    {
+      "name": "Recommend Property",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/recommendations",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "recommendations"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"recipientEmail\": \"friend@example.com\",\n  \"propertyId\": \"<property_id>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Received Recommendations",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/recommendations/received",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "recommendations",
+            "received"
+          ],
+          "query": []
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000/api",
+      "type": "string"
+    },
+    {
+      "key": "auth_token",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}
