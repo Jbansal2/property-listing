@@ -11,9 +11,6 @@ const recommendProperty = async (req, res) => {
   }
 
   try {
-    // Debug: Log User model to ensure it's loaded
-    console.log('User model:', User);
-
     const recipient = await User.findOne({ email: recipientEmail });
     if (!recipient) {
       return res.status(404).json({ message: 'Recipient not found' });
@@ -22,7 +19,7 @@ const recommendProperty = async (req, res) => {
     console.log('Found recipient:', recipient);
 
     const recommendation = new Recommendation({
-      senderId: req.user.userId, // Ensure req.user.userId is set (e.g., via auth middleware)
+      senderId: req.user.userId, 
       recipientId: recipient._id,
       propertyId,
     });
@@ -36,7 +33,7 @@ const recommendProperty = async (req, res) => {
     res.status(500).json({
       success: false,
       message: 'Server error',
-      error: error.message, // Include error message for debugging
+      error: error.message, 
     });
   }
 };
@@ -60,7 +57,7 @@ const getRecommendations = async (req, res) => {
     res.status(500).json({
       success: false,
       message: 'Server error',
-      error: error.message, // Include error message for debugging
+      error: error.message, 
     });
   }
 };
