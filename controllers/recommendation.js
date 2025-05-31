@@ -1,4 +1,4 @@
-const Recommendation = require('../models/recommendation'); // Note: Update case if file is named differently
+const Recommendation = require('../models/Recommendation'); 
 const { redisClient } = require('../config/redis');
 const User = require('../models/User');
 
