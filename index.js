@@ -1,6 +1,7 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const path = require("path");
 const connectDB = require("./config/database");
 const { connectRedis } = require("./config/redis");
 const authRoutes = require("./routes/authRoutes");
@@ -20,9 +21,9 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.send("Welcome to the Real Estate API`S");
-});  
+app.use('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 (async () => {
   await connectDB();
