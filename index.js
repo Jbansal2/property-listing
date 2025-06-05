@@ -1,6 +1,7 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const path = require("path");
 const connectDB = require("./config/database");
 const { connectRedis } = require("./config/redis");
 const authRoutes = require("./routes/authRoutes");
@@ -21,8 +22,9 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.send("Welcome to the Proprty Listing System API");
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
+app.use(express.static(path.join(__dirname, "public")));
 
 (async () => {
   await connectDB();
@@ -33,7 +35,6 @@ app.use("/api/auth", authRoutes);
 app.use("/api/properties", propertyRoutes);
 app.use("/api/favorites", favoriteRoutes);
 app.use("/api/recommendations", recommendationRoutes);
-
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
